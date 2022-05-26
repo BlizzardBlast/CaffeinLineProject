@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="mycss.css">
+    <title>Caffein Line</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="jquery-3.5.1.js"></script>
+    <script src="logic.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="container">
+        <div class="header">
+            <a href="index.html"><img src="image/Logo.jpeg" alt="Logo"></a>
+            <div class="nav" id="links">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li>
+                        <a href="bevmenu.html">Menu Beverages</a>
+                        <ul>
+                            <li><a href="tea.html">Menu Teh</a></li>
+                            <li><a href="kopi.html">Menu Kopi</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="makanan.html">Menu Desserts</a></li>
+                    <li><a href="contact.html">Hubungi Kami</a></li>
+                    <li><a href="payment.html">Pembayaran</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="openMenu()"></i>
+            <script>
+                var links = document.getElementById("links");
+
+                function myFunction(x) {
+                    if (x.matches) {
+                        links.style.display = "block";
+                    }
+                    $.ajax({
+                        complete: function() {
+                            setTimeout(myFunction(x), 1000);
+                        }
+                    });
+                }
+
+                var x = window.matchMedia("(max-width: 700px)")
+                myFunction(x)
+                x.addListener(myFunction)
+
+                function openMenu() {
+                    links.style.right = "0";
+                    links.style.display = "block";
+                }
+
+                function hideMenu() {
+                    links.style.right = "-200px";
+                    links.style.display = "none";
+                }
+            </script>
+        </div>
+
+        <div class="formulir">
+            <form name="booking">
+                <table>
+                    <tr>
+                        <td><label for="nama">Nama Lengkap</label></td>
+                        <td> : </td>
+                        <td><div style="width: 100%;"><input type="text" name="nama" id="nama" size="100" placeholder="Masukkan nama lengkap Anda..."></div></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email</label></td>
+                        <td> : </td>
+                        <td><div style="width: 100%;"><input type="text" name="email" id="email" size="100" placeholder="Contoh: example@gmail.com"></div></td>
+                    </tr>
+                    <tr>
+                        <td><label for="pesan">Pesan</label></td>
+                        <td> : </td>
+                        <td style="width: 100%;"><div style="width: 100%;"><textarea name="pesan" id="pesan" rows="20" style="height: 20%;"></textarea></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="color: red;">
+                            <span id="errMsg" style="display: none;">Error Message</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="Kirim Pesan" onclick="checkValidation()"></td>
+                        <td></td>
+                        <td><input type="reset" value="Reset" style="float: left;"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2021 PT Caffein Line. All rights reserved.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="mycss.css">
+    <title>Caffein Line</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="jquery-3.5.1.js"></script>
+    <script src="logic.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="container">
+        <div class="header">
+            <a href="index.html"><img src="image/Logo.jpeg" alt="Logo"></a>
+            <div class="nav" id="links">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li>
+                        <a href="bevmenu.html">Menu Beverages</a>
+                        <ul>
+                            <li><a href="tea.html">Menu Teh</a></li>
+                            <li><a href="kopi.html">Menu Kopi</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="makanan.html">Menu Desserts</a></li>
+                    <li><a href="contact.html">Hubungi Kami</a></li>
+                    <li><a href="payment.html">Pembayaran</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="openMenu()"></i>
+            <script>
+                var links = document.getElementById("links");
+
+                function myFunction(x) {
+                    if (x.matches) {
+                        links.style.display = "block";
+                    }
+                    $.ajax({
+                        complete: function() {
+                            setTimeout(myFunction(x), 1000);
+                        }
+                    });
+                }
+
+                var x = window.matchMedia("(max-width: 700px)")
+                myFunction(x)
+                x.addListener(myFunction)
+
+                function openMenu() {
+                    links.style.right = "0";
+                    links.style.display = "block";
+                }
+
+                function hideMenu() {
+                    links.style.right = "-200px";
+                    links.style.display = "none";
+                }
+            </script>
+        </div>
+        <div class="menu">
+            <img src="image/MenuKopi.jpeg" alt="Menu Kopi">
+        </div>
+    </div>
+
+    <div class="desc">
+        <h1>Menu Description</h1>
+        <div class="row">
+            <div class="col">
+                <h3>Dalgona Coffee</h3>
+                <p>Buat kalian yang suka banget sama dalgona dan gamau ketinggalan sama rasanya langsung aja ke Caffein Line.</p>
+            </div>
+            <div class="col">
+                <h3>Lotus Biscoff Coffee</h3>
+                <p>Kalian pasti tau kan kalo lotus biscoff biasanya dimakan sebagai biskuit aja dan penasaran gimana rasanya sebagai minuman tuh gimana langsung aja kuyyy ke Caffein Line.</p>
+            </div>
+            <div class="col">
+                <h3>Bunga Hati Coffee</h3>
+                <p>Kopi original dari Caffein Line.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h3>Caramel Latte</h3>
+                <p>Caramel latte Caffein Line ga kalah menarik dan enak sama coffee shop diluar sana lho gaes, gapercaya?? Langsung aja ke Caffein Line</p>
+            </div>
+            <div class="col">
+                <h3>Hazelnut Latte</h3>
+                <p>Cocok banget nih hazelnut latte buat kalian yang kangen sama manisnya hazelnut dan perpaduan kopi racikan spesial dari hazelnut latte</p>
+            </div>
+            <div class="col">
+                <h3 style="padding-top: 20%;">Nantikan produk kami selanjutnya ya :)</h3>
+                <p style="padding-bottom: 20%;">Oh iya, tau ga sih, biaya pengiriman <b style="color:red;">gratis</b> terlepas dari jumlah transaksi yang dilakukan lho.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2021 PT Caffein Line. All rights reserved.</p>
+    </div>
+</body>
+</html>

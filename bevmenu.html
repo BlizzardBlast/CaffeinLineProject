@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="mycss.css">
+    <title>Caffein Line</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="jquery-3.5.1.js"></script>
+    <script src="logic.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="container">
+        <div class="header">
+            <a href="index.html"><img src="image/Logo.jpeg" alt="Logo"></a>
+            <div class="nav" id="links">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li>
+                        <a href="bevmenu.html">Menu Beverages</a>
+                        <ul>
+                            <li><a href="tea.html">Menu Teh</a></li>
+                            <li><a href="kopi.html">Menu Kopi</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="makanan.html">Menu Desserts</a></li>
+                    <li><a href="contact.html">Hubungi Kami</a></li>
+                    <li><a href="payment.html">Pembayaran</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="openMenu()"></i>
+            <script>
+                var links = document.getElementById("links");
+
+                function myFunction(x) {
+                    if (x.matches) {
+                        links.style.display = "block";
+                    }
+                    $.ajax({
+                        complete: function() {
+                            setTimeout(myFunction(x), 1000);
+                        }
+                    });
+                }
+
+                var x = window.matchMedia("(max-width: 700px)")
+                myFunction(x)
+                x.addListener(myFunction)
+
+                function openMenu() {
+                    links.style.right = "0";
+                    links.style.display = "block";
+                }
+
+                function hideMenu() {
+                    links.style.right = "-200px";
+                    links.style.display = "none";
+                }
+            </script>
+        </div>
+        
+        <div class="bevMenu">
+            <div class="bevMenu1">
+                <img src="image/KopiCokelat2.jpeg" alt="Kopi Cokelat2" width="30%">
+                <div class="bevMenu1Text">
+                    <h1>Minuman dan makanan handmade yang enak</h1>
+                    <p><br>Kami memilih bahan baku yang berkualitas dan tenaga kerja yang handal sehingga Anda dapat menikmati waktu bersantai sambil menyeruput kopi dan memakan makanan kami. Tidak hanya itu, biaya pengiriman <b style="color:chartreuse;">gratis</b> terlepas dari jumlah transaksi yang dilakukan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bevMenu2">
+        <div class="bevMenu2Text">
+            <h1>Menu Kopi Caffein Line</h1>
+            <p><br>Menu Kopi yang lezat dan diambil dari berbagai penghujung dunia. Kualitas terjamin.<br><br><br></p>
+            <a href="kopi.html">Explore Menu</a>
+        </div>
+        <img src="image/KopiHati.jpeg" alt="Kopi Hati" width="30%">
+    </div>
+
+    <div class="bevMenu3">
+        <img src="image/Teh.jpeg" alt="Teh" width="30%">
+        <div class="bevMenu3Text">
+            <h1>Menu Teh Caffein Line</h1>
+            <p><br>Teh yang lezat dan hangat akan membuat harimu menjadi lebih indah.<br><br><br></p>
+            <a href="tea.html">Explore Menu</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2021 PT Caffein Line. All rights reserved.</p>
+    </div>
+</body>
+</html>
